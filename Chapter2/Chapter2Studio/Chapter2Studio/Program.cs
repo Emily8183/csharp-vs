@@ -1,19 +1,41 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.ComponentModel.Design;
 using System.Diagnostics.Metrics;
 
 using Chapter2Studio;
 
-Console.WriteLine("Enter a radius: ");
+Boolean stopLoop = false;
 
-string input = Console.ReadLine();
+while (!stopLoop)
+{
+    Console.WriteLine("Enter a radius: ");
 
-float radius;
+    try
+    {
+        string input = Console.ReadLine();
 
-radius = float.Parse(input);
+        float radius = float.Parse(input);
 
-double result = Circles.CalculateRadius(radius);
+        if (radius > 0)
+        {
+            double result = Circles.CalculateRadius(radius);
+            Console.WriteLine("The area of a circle of radius " + radius + " is: " + result);
+            stopLoop = true;
+        }
+        else
+        {
+            Console.WriteLine("Enter a valid number for the radius: ");
+        }
+    }
 
-Console.WriteLine("The area of a circle of radius " + radius + " is: " + result);
+    catch(FormatException)
+    {
+        Console.WriteLine("You did not enter a valid format.");
+    }
+
+
+  
+}
 
 
 

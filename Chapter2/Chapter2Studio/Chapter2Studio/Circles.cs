@@ -10,7 +10,7 @@ namespace Chapter2Studio
     {
         public static double CalculateRadius(float radius)
         {
-            return radius * radius * 3.14;
+            return Math.Pow(radius, 2) * Math.PI;
         }
     }
 }
