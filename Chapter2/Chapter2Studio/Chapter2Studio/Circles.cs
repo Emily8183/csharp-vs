@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Chapter2Studio
 {
-    internal class Circles
+     public class Circles
     {
+        public static double CalculateRadius(float radius)
+        {
+            return radius * radius * 3.14;
+        }
     }
 }
