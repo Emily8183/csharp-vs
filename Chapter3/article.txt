@@ -1,0 +1,4 @@
+This change maintains the same functionality but is more efficient, as it avoids the overhead of converting the character to a string and back.
+
+Revised Code Snippet
+Here’s how your code might look with this simplification:

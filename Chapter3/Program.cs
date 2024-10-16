@@ -5,24 +5,31 @@
 //3, print out the dictionary
 
 Dictionary<char, int> map = new Dictionary<char, int>();
-int value = 0;
 
-string sample = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan sem ut ligula scelerisque sollicitudin. Ut at sagittis augue. Praesent quis rhoncus justo. Aliquam erat volutpat. Donec sit amet suscipit metus, non lobortis massa. Vestibulum augue ex, dapibus ac suscipit vel, volutpat eget massa. Donec nec velit non ligula efficitur luctus.";
+//Console.WriteLine("give me a string");
+//string sample = Console.ReadLine();
+
+string sample = File.ReadAllText("./article.txt"); //read the string from a file
 
 for (int i = 0; i < sample.Length; i++)
 {
-    char c = sample[i];
+    char c = char.ToLower(sample[i]);//lower case
 
-    if (map.ContainsKey(c))
+    if (char.IsLetter(c))
     {
-        map[c]++;
-    } else
-    {
-        map.Add(c, 1);
+        if (map.ContainsKey(c))
+        {
+            map[c]++;
+        }
+        else
+        {
+            map.Add(c, 1);
+        }
     }
 }
 
-foreach(KeyValuePair<char,int> kvp in map)
+foreach (KeyValuePair<char, int> kvp in map)
 {
-    Console.WriteLine(kvp.Key + " : " +  kvp.Value);
+    Console.WriteLine(kvp.Key + " : " + kvp.Value);
 }
+
