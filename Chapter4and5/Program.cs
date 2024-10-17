@@ -18,4 +18,6 @@ menu.AddItems(menuitem1);
 menu.AddItems(menuitem2);
 menu.AddItems(menuitem3);
 
+menu.RemoveItems(menuitem3);
+
 Console.WriteLine(menu);
