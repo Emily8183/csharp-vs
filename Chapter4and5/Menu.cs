@@ -9,17 +9,35 @@ namespace Chapter4and5
     public class Menu
     {
         private List<MenuItem> items = new List<MenuItem>();
+        public DateTime LastUpdated { get; set; } = DateTime.Now;
 
-        //instance methods
+        //above can also set up as public with getter and setter
+        //public List<MenuItem> MenuItems { get; set; } = new List<MenuItem>(); // or new() or []
+        //public DateTime LastUpdated { get; set; } = DateTime.Now;
 
-        public void AddItems(MenuItem item)
+        //public void AddItem(MenuItem item)
+        //{
+        //    items.Add(item); 
+        //}
+
+        public void AddItem(MenuItem newItem)
         {
-            items.Add(item); 
-        }
+            if (items.Contains(newItem))
+            {
+                Console.WriteLine("Item can't be added due to the duplication");
 
-        public void RemoveItems(MenuItem item)
+            }
+            else
+            {
+                items.Add(newItem);
+                LastUpdated = DateTime.Now;
+                newItem.TimeAdded = DateTime.Now;
+            }
+        }
+        public void RemoveItem(MenuItem item)
         {
             items.Remove(item);
+            LastUpdated = DateTime.Now;
         }
 
         public override string ToString()
@@ -35,16 +53,6 @@ namespace Chapter4and5
             return stringbuilder.ToString();
         }
 
-        public void PrintNewProducts()
-        {
-            foreach (MenuItem item in items)
-            {
-                if (item.IsNew)
-                {
-                    Console.WriteLine(item.ToString());
-                }
-            }
-        }
 
         //find if the item already exists in the menu
         public int findItem (string name)

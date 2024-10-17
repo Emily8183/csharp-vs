@@ -14,7 +14,7 @@ namespace Chapter4and5
 
         public string Category { get; set; }
 
-        public DateTime TimeAdded { get; }
+        public DateTime TimeAdded { get; set; }
 
 
         public MenuItem(string name, int price, string description, string category)
