@@ -20,4 +20,18 @@ menu.AddItems(menuitem3);
 
 menu.RemoveItems(menuitem3);
 
-Console.WriteLine(menu);
+menu.PrintNewProducts();
+
+//create a new menu
+Menu menu2 = new Menu();
+
+MenuItem menuitem4 = new MenuItem("milk",5,"fresh","diary");
+MenuItem menuitem5 = new MenuItem("milk", 6, "fresh", "diary");
+
+menu2.AddItems(menuitem4);
+//menu2.AddItems(menuitem5);
+
+Console.WriteLine(Equals(menu, menu2));
+
+//Console.WriteLine(menu);
+
