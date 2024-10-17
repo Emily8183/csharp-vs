@@ -8,7 +8,7 @@ namespace Chapter4and5
 {
     public class Menu
     {
-        private List<MenuItem> items;
+        private List<MenuItem> items = new List<MenuItem>();
 
         //instance methods
 
@@ -22,8 +22,18 @@ namespace Chapter4and5
             items.Remove(item);
         }
 
-        
+        public override string ToString()
+        {
+            StringBuilder stringbuilder = new StringBuilder();
 
+            foreach (MenuItem item in items)
+            {
+                stringbuilder.Append(item); // implicit call to .ToString()
+                stringbuilder.Append(Constants.DOT_LINE);
+            }
+
+            return stringbuilder.ToString();
+        }
 
     }
 }
